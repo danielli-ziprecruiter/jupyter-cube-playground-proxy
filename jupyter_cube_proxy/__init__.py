@@ -3,9 +3,9 @@ from jupyter_server_proxy.handlers import LocalProxyHandler
 from notebook.utils import url_path_join
 
 
-class SparkUIHandler(LocalProxyHandler):
+class CubePlaygoundHandler(LocalProxyHandler):
     def __init__(self, *args, **kwargs):
-        self.port = 4040
+        self.port = 4000
         super().__init__(*args, **kwargs)
 
     @web.authenticated
@@ -16,14 +16,7 @@ class SparkUIHandler(LocalProxyHandler):
         return await super().proxy(self.port, path)
 
     async def http_get(self, path):
-        # SparkUI has a bug where / doesn't respect spark.ui.proxyBase
-        # so we do the redirect for them
-        if path == '' or path == '/':
-            # The '/' at end of jobs is important, since otherwise
-            # spark UI can't even and 
-            self.redirect(url_path_join(self.base_url, 'sparkui', 'jobs/'))
-        else:
-            return await self.proxy(path)
+        return await self.proxy(path)
 
     async def open(self, path):
         return await super().open(path)
@@ -52,7 +45,7 @@ class SparkUIHandler(LocalProxyHandler):
 def setup_handlers(web_app):
     base_url = web_app.settings['base_url']
     web_app.add_handlers('.*', [
-        (url_path_join(base_url, r'/sparkui(.*)'), SparkUIHandler, {'absolute_url': False})
+        (url_path_join(base_url, r'/playground(.*)'), CubePlaygoundHandler, {'absolute_url': False})
     ])
 
 

@@ -2,7 +2,7 @@ import setuptools
 from glob import glob
 
 setuptools.setup(
-    name="jupyter-sparkui-proxy",
+    name="jupyter-cube-proxy",
     version='1.0.1',
     url="https://github.com/yuvipanda/jupyter-sparkui-proxy",
     author="Yuvi Panda",
@@ -14,8 +14,8 @@ setuptools.setup(
         'Framework :: Jupyter',
     ],
     data_files=[
-        ('etc/jupyter/jupyter_notebook_config.d', ['jupyter_sparkui_proxy/etc/jupyter-sparkui-proxy-notebookserverextension.json']),
-        ('etc/jupyter/jupyter_server_config.d', ['jupyter_sparkui_proxy/etc/jupyter-sparkui-proxy-jupyterserverextension.json']),
+        ('etc/jupyter/jupyter_notebook_config.d', ['jupyter_cube_proxy/etc/jupyter-cube-proxy-notebookserverextension.json']),
+        ('etc/jupyter/jupyter_server_config.d', ['jupyter_cube_proxy/etc/jupyter-cube-proxy-jupyterserverextension.json']),
     ],
     include_package_data=True,
     zip_safe=False

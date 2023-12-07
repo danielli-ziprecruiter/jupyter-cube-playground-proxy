@@ -1,2 +1,2 @@
-# jupyter-sparkui-proxy
-Proxy SparkUI in JupyterHub
+# jupyter-cube-proxy
+Proxy Cube Playground in JupyterHub

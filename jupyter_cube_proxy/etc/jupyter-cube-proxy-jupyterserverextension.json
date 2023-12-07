@@ -1,7 +1,7 @@
 {
   "ServerApp": {
     "jpserver_extensions": {
-      "jupyter_sparkui_proxy": true
+      "jupyter_cube_proxy": true
     }
   }
 }
